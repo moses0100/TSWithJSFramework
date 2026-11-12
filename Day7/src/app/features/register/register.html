@@ -1,0 +1,164 @@
+<div class="min-h-screen flex">
+  <!-- Left Column - Image and Text -->
+  <div class="hidden md:flex md:w-1/2 bg-orange-600 text-white items-center justify-center">
+    <div class="max-w-md px-8 py-12">
+      <h1 class="text-3xl font-bold mb-6">เริ่มต้นใช้งานฟรี</h1>
+      <p class="text-lg mb-8">สร้างบัญชีเพื่อเริ่มต้นพัฒนาโปรเจคของคุณกับเรา และเพลิดเพลินไปกับเครื่องมือที่ทรงพลัง</p>
+      <div class="mb-8">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800" alt="Web development" class="rounded-lg shadow-lg">
+      </div>
+      <div class="bg-orange-700 p-4 rounded-lg">
+        <p class="text-sm italic">
+          "ทีมงานของเรามีความเชี่ยวชาญในการใช้ Angular เพื่อสร้างแอปพลิเคชันที่มีประสิทธิภาพ เราพร้อมที่จะช่วยให้คุณบรรลุเป้าหมายทางธุรกิจด้วยเทคโนโลยีที่ทันสมัย"
+        </p>
+        <div class="mt-4 flex items-center">
+          <div class="h-10 w-10 rounded-full bg-orange-500 flex items-center justify-center">
+            <span class="font-bold">ป</span>
+          </div>
+          <div class="ml-3">
+            <p class="font-medium">ปรัชญา เทพสุธา</p>
+            <p class="text-orange-300 text-sm">Lead Developer, AngularApp</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Right Column - Registration Form -->
+  <div class="w-full md:w-1/2 flex items-center justify-center">
+    <div class="max-w-md w-full px-8 py-12 sm:px-12">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-gray-900">สร้างบัญชีใหม่</h2>
+        <p class="mt-2 text-gray-600">กรอกข้อมูลเพื่อสร้างบัญชีของคุณ</p>
+      </div>
+      
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-5">
+        <!-- Name Fields - 2 columns -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- First Name Input -->
+          <div>
+            <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">ชื่อ</label>
+            <input id="firstName" formControlName="firstName" type="text" class="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 placeholder-gray-300" placeholder="ชื่อจริง">
+            <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched" class="text-red-500 text-xs mt-1">
+              กรุณากรอกชื่อ
+            </div>
+          </div>
+          
+          <!-- Last Name Input -->
+          <div>
+            <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">นามสกุล</label>
+            <input id="lastName" formControlName="lastName" type="text" class="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 placeholder-gray-300" placeholder="นามสกุล">
+            <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched" class="text-red-500 text-xs mt-1">
+              กรุณากรอกนามสกุล
+            </div>
+          </div>
+        </div>
+        
+        <!-- Email Input -->
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">อีเมล</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+              </svg>
+            </div>
+            <input id="email" formControlName="email" type="email" class="block w-full pl-10 pr-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 placeholder-gray-300" placeholder="อีเมลของคุณ">
+          </div>
+          <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-red-500 text-xs mt-1">
+            <span *ngIf="registerForm.get('email')?.errors?.['required']">กรุณากรอกอีเมล</span>
+            <span *ngIf="registerForm.get('email')?.errors?.['email']">กรุณากรอกอีเมลให้ถูกต้อง</span>
+          </div>
+        </div>
+        
+        <!-- Password Input -->
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700 mb-1">รหัสผ่าน</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <input id="password" formControlName="password" type="password" class="block w-full pl-10 pr-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 placeholder-gray-300" placeholder="รหัสผ่านของคุณ">
+          </div>
+          <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-red-500 text-xs mt-1">
+            <span *ngIf="registerForm.get('password')?.errors?.['required']">กรุณากรอกรหัสผ่าน</span>
+            <span *ngIf="registerForm.get('password')?.errors?.['minlength']">รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร</span>
+          </div>
+        </div>
+        
+        <!-- Confirm Password Input -->
+        <div>
+          <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-1">ยืนยันรหัสผ่าน</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <input id="confirmPassword" formControlName="confirmPassword" type="password" class="block w-full pl-10 pr-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500 placeholder-gray-300" placeholder="ยืนยันรหัสผ่านของคุณ">
+          </div>
+          <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched" class="text-red-500 text-xs mt-1">
+            กรุณายืนยันรหัสผ่าน
+          </div>
+        </div>
+        
+        <!-- Terms and Conditions Checkbox -->
+        <div class="flex items-start">
+          <div class="flex items-center h-5">
+            <input id="acceptTerms" formControlName="acceptTerms" type="checkbox" class="h-4 w-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded">
+          </div>
+          <div class="ml-3 text-sm">
+            <label for="acceptTerms" class="text-gray-600">ฉันยอมรับ <a href="#" class="text-orange-600 hover:underline">ข้อตกลงและเงื่อนไข</a> การใช้งาน</label>
+            <div *ngIf="registerForm.get('acceptTerms')?.invalid && registerForm.get('acceptTerms')?.touched" class="text-red-500 text-xs mt-1">
+              คุณต้องยอมรับข้อตกลงและเงื่อนไขการใช้งาน
+            </div>
+          </div>
+        </div>
+        
+        <!-- Register Button -->
+        <div>
+          <button type="submit" [disabled]="registerForm.invalid" [ngClass]="{'bg-orange-400': registerForm.invalid, 'bg-orange-600 hover:bg-orange-700': !registerForm.invalid}" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
+            สมัครสมาชิก
+          </button>
+        </div>
+      </form>
+      
+      <!-- Divider -->
+      <div class="mt-6">
+        <div class="relative">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-300"></div>
+          </div>
+          <div class="relative flex justify-center text-sm">
+            <span class="px-2 bg-white text-gray-500">หรือสมัครด้วย</span>
+          </div>
+        </div>
+        
+        <!-- Social Registration Buttons -->
+        <div class="mt-6 grid grid-cols-2 gap-3">
+          <button class="w-full py-3 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 flex items-center justify-center">
+            <svg class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
+            </svg>
+            Google
+          </button>
+          <button class="w-full py-3 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 flex items-center justify-center">
+            <svg class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+            Facebook
+          </button>
+        </div>
+      </div>
+      
+      <!-- Sign In Link -->
+      <div class="mt-8 text-center">
+        <p class="text-sm text-gray-600">
+          มีบัญชีอยู่แล้ว? <a routerLink="/login" class="font-medium text-orange-600 hover:text-orange-500">เข้าสู่ระบบ</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

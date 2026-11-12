@@ -1,0 +1,20 @@
+﻿<div class="min-h-screen bg-gray-100">
+  <!-- Header -->
+  <app-admin-header (toggleSidebarEvent)="toggleSidebar()"></app-admin-header>
+
+  <!-- Sidebar -->
+  <app-admin-sidebar [isSidebarCollapsed]="isSidebarCollapsed"></app-admin-sidebar>
+
+  <!-- Main Content -->
+  <main class="pt-24 pb-8 transition-all duration-300" [ngClass]="{'pl-64': !isSidebarCollapsed, 'pl-20': isSidebarCollapsed}">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Main content goes here -->
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div class="transition-all duration-300" [ngClass]="{'pl-64': !isSidebarCollapsed, 'pl-20': isSidebarCollapsed}">
+    <app-admin-footer></app-admin-footer>
+  </div>
+</div>

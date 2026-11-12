@@ -1,0 +1,37 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-orange-100 px-4">
+  <div class="max-w-lg w-full text-center">
+    <!-- 404 Icon -->
+    <div class="mb-8 relative">
+      <h1 class="text-9xl font-bold text-orange-600 opacity-20">404</h1>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" 
+            d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Text content -->
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">ไม่พบหน้าที่คุณต้องการ</h2>
+    <p class="text-lg text-gray-600 mb-8">
+      หน้าที่คุณกำลังมองหาอาจถูกลบไปแล้ว เปลี่ยนชื่อ หรือไม่มีอยู่ในระบบ
+    </p>
+
+    <!-- Action buttons -->
+    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+      <a routerLink="/" class="px-5 py-3 bg-orange-600 text-white font-medium rounded-lg hover:bg-orange-700 transition duration-200 shadow-md hover:shadow-lg">
+        กลับไปยังหน้าหลัก
+      </a>
+      <button (click)="goBack()" class="px-5 py-3 bg-white text-orange-600 font-medium rounded-lg border border-orange-200 hover:bg-orange-50 transition duration-200 shadow-sm hover:shadow-md">
+        ย้อนกลับ
+      </button>
+    </div>
+
+    <!-- Additional help -->
+    <div class="mt-12 pt-8 border-t border-orange-200">
+      <p class="text-gray-500">
+        มีปัญหาการใช้งาน? <a href="#" class="text-orange-600 hover:underline">ติดต่อฝ่ายสนับสนุน</a>
+      </p>
+    </div>
+  </div>
+</div>

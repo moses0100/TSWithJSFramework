@@ -1,0 +1,25 @@
+﻿<nav class="bg-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+      <a routerLink="/" class="text-xl font-bold text-orange-600">Basic<span class="text-gray-800">Angular</span></a>
+      <ul class="flex space-x-6 items-center">
+        <li>
+          <a routerLink="/" routerLinkActive="text-orange-600 font-bold" [routerLinkActiveOptions]="{ exact: true }"
+             class="text-gray-700 hover:text-orange-500 transition-colors">Home</a>
+        </li>
+        <li>
+          <a routerLink="/about" routerLinkActive="text-orange-600 font-bold"
+             class="text-gray-700 hover:text-orange-500 transition-colors">About</a>
+        </li>
+        <li>
+          <a routerLink="/contact" routerLinkActive="text-orange-600 font-bold"
+             class="text-gray-700 hover:text-orange-500 transition-colors">Contact</a>
+        </li>
+        <li>
+          <a routerLink="/login"
+             class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md transition-colors">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
